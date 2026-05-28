@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-##from utils.llm_insights import generate_llm_insights
+from utils.llm_insights import generate_llm_insights
 
 # ===================================================
 # PAGE CONFIG
@@ -803,32 +803,32 @@ with tab4:
 
     st.plotly_chart(fig_combo, use_container_width=True)
 
-    st.info(
-    "AI insights available in local deployment version."
-)
+#     st.info(
+#     "AI insights available in local deployment version."
+# )
 
-#     st.divider()
+    st.divider()
     
-#     st.subheader("🤖 AI Decision Support")
+    st.subheader("🤖 AI Decision Support")
 
-#     st.markdown(
-#         """
-# Generate AI-powered operational insights
-# for agricultural supply chain monitoring.
-# """
-#     )
+    st.markdown(
+        """
+Generate AI-powered operational insights
+for agricultural supply chain monitoring.
+"""
+    )
 
-#     if st.button("Generate AI Insights"):
+    if st.button("Generate AI Insights"):
 
-#         with st.spinner(
-#             "Generating AI-powered operational insights..."
-#         ):
+        with st.spinner(
+            "Generating AI-powered operational insights..."
+        ):
 
-#             insights = generate_llm_insights(
-#                 filtered_prod,
-#                 filtered_log,
-#                 filtered_inv
-#             )
+            insights = generate_llm_insights(
+                filtered_prod,
+                filtered_log,
+                filtered_inv
+            )
 
-#             st.info(insights)
+            st.info(insights)
 
