@@ -1,4 +1,5 @@
 # AI-Powered Agriculture Supply Chain Analytics
+https://agri-supply-chain-analytics-kzgezfvh8jlfcvrjd4r7bh.streamlit.app/
 
 Interactive Streamlit dashboard for agricultural production,
 logistics, inventory, and spoilage analytics.
