@@ -1,4 +1,6 @@
-import ollama
+
+from groq import Groq
+import streamlit as st
 
 def generate_llm_insights(prod, log, inv):
 
@@ -53,23 +55,37 @@ def generate_llm_insights(prod, log, inv):
     - Average logistics delay: {avg_delay}
 
     Generate:
+
     1. Key operational insights
     2. Supply chain risks
     3. Recommendations
+
+    Keep the response concise and business-focused.
     """
+
+    # ---------------------------------------------------
+    # GROQ CLIENT
+    # ---------------------------------------------------
+
+    client = Groq(
+        api_key=st.secrets["GROQ_API_KEY"]
+    )
 
     # ---------------------------------------------------
     # LLM RESPONSE
     # ---------------------------------------------------
 
-    response = ollama.chat(
-        model="phi3",
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
         messages=[
             {
                 "role": "user",
                 "content": prompt
             }
-        ]
+        ],
+        temperature=0.3,
+        max_tokens=500
     )
 
-    return response["message"]["content"]
+    return response.choices[0].message.content
+
